@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Couscous Royal</title>
+    <title>Brick à l'œuf</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,24 +18,17 @@
         }
         header {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Arrange les éléments en colonne */
             justify-content: center;
-            align-items: center;
+            align-items: center; /* Centre les éléments horizontalement */
             background-color: #bdc9cc;
             color: Black;
             border-radius: 8px;
             padding: 10px;
-            text-align: center;
-            position: relative;
-        }
-        header .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 100px;
+            text-align: center; /* Centre le texte */
         }
         header .flags {
-            margin-top: 10px;
+            margin-top: 10px; /* Ajoute un espace entre le titre et les drapeaux */
         }
         header h1 {
             margin: 0;
@@ -53,17 +46,17 @@
             transform: scale(1.5);
         }
         .dish-image {
-            display: block;
+            display: block;  /* Ensures the image is treated as a block element */
             width: 60%;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto;  /* This centers the image horizontally */
             border-radius: 20px;
             transition: transform 0.5s ease-in-out;
         }
         .dish-image:hover {
             transform: scale(1.01); rotate(5deg); /* Agrandissement et légère rotation */
             opacity: 0.5; /* Réduction légère de l'opacité */
-        
+
         }
         .logo {
             display: block;
@@ -76,18 +69,12 @@
 
         .logo:hover {
             transform: scale(1.1);
-
         }
         .overview, .calories, .components, .allergies, .history, .serving {
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .overview:hover {
-            transform: scale(1.01);
         }
         .overview {
             background-color: #f8f8f8;
@@ -126,142 +113,176 @@
     </style>
     <script>
         function switchLanguage(language) {
-            const translations = {
-                'fr': {
-                    title: 'Couscous Royal',
-                    overview: 'Présentation',
-                    calories: 'Calories',
-                    components: 'Composants principaux',
-                    allergies: 'Allergènes',
-                    history: 'Histoire',
-                    serving: 'Présentation'
-                },
-                'en': {
-                    title: 'Royal Couscous',
-                    overview: 'Overview',
-                    calories: 'Calories',
-                    components: 'Main Ingredients',
-                    allergies: 'Allergens',
-                    history: 'History',
-                    serving: 'Serving'
-                },
-                'es': {
-                    title: 'Cuscús Real',
-                    overview: 'Descripción',
-                    calories: 'Calorías',
-                    components: 'Ingredientes principales',
-                    allergies: 'Alergias',
-                    history: 'Historia',
-                    serving: 'Servicio'
-                },
-                'de': {
-                    title: 'Königlicher Couscous',
-                    overview: 'Überblick',
-                    calories: 'Kalorien',
-                    components: 'Hauptzutaten',
-                    allergies: 'Allergene',
-                    history: 'Geschichte',
-                    serving: 'Servieren'
-                },
-                'it': {
-                    title: 'Couscous Reale',
-                    overview: 'Panoramica',
-                    calories: 'Calorie',
-                    components: 'Ingredienti principali',
-                    allergies: 'Allergeni',
-                    history: 'Storia',
-                    serving: 'Servizio'
-                },
-                'pl': {
-                    title: 'Królewski Kus-kus',
-                    overview: 'Przegląd',
-                    calories: 'Kalorie',
-                    components: 'Główne składniki',
-                    allergies: 'Alergeny',
-                    history: 'Historia',
-                    serving: 'Serwowanie'
-                },
-                'ar': {
-                    title: 'كسكسي ملكي',
-                    overview: 'نظرة عامة',
-                    calories: 'السعرات الحرارية',
-                    components: 'المكونات الرئيسية',
-                    allergies: 'المواد المثيرة للحساسية',
-                    history: 'التاريخ',
-                    serving: 'طريقة التقديم'
-                }
+            const texts = {
+                'fr': 'Brick à l\'œuf',
+                'en': 'Egg Brick',
+                'es': 'Brick de Huevo',
+                'de': 'Eibrik',
+                'it': 'Brick all\'uovo',
+                'pl': 'Brick z jajkiem',
+                'ar': 'بريك بالبيض'
             };
 
-            const content = translations[language];
-            document.querySelector('header h1').textContent = content.title;
-            document.querySelector('.overview h2').textContent = content.overview;
-            document.querySelector('.calories h2').textContent = content.calories;
-            document.querySelector('.components h2').textContent = content.components;
-            document.querySelector('.allergies h2').textContent = content.allergies;
-            document.querySelector('.history h2').textContent = content.history;
-            document.querySelector('.serving h2').textContent = content.serving;
+            const overviews = {
+                'fr': 'Le Brick à l\'œuf est une spécialité tunisienne composée d\'une fine pâte farcie d\'un œuf et de divers ingrédients.',
+                'en': 'Egg Brick is a Tunisian specialty made from thin dough filled with an egg and various ingredients.',
+                'es': 'El Brick de Huevo es una especialidad tunecina hecha de masa fina rellena de un huevo y diversos ingredientes.',
+                'de': 'Eibrik ist eine tunesische Spezialität aus dünnem Teig, gefüllt mit einem Ei und verschiedenen Zutaten.',
+                'it': 'Brick all\'uovo è una specialità tunisina fatta di pasta sottile ripiena di un uovo e vari ingredienti.',
+                'pl': 'Brick z jajkiem to tunezyjska specjalność z cienkiego ciasta nadziewanego jajkiem i różnymi składnikami.',
+                'ar': 'بريك بالبيض هو طبق تونسي مكون من عجينة رقيقة محشوة ببيضة ومكونات متنوعة.'
+            };
+
+            const calories = {
+                'fr': 'Environ 300 calories par portion...',
+                'en': 'About 300 calories per serving...',
+                'es': 'Alrededor de 300 calorías por porción...',
+                'de': 'Etwa 300 Kalorien pro Portion...',
+                'it': 'Circa 300 calorie per porzione...',
+                'pl': 'Około 300 kalorii na porcję...',
+                'ar': 'حوالي 300 سعرة حرارية لكل حصة...'
+            };
+
+            const components = {
+                'fr': 'Composants principaux : Pâte à brick, œuf, thon, câpres, persil...',
+                'en': 'Main ingredients: Brick dough, egg, tuna, capers, parsley...',
+                'es': 'Ingredientes principales: Masa de brick, huevo, atún, alcaparras, perejil...',
+                'de': 'Hauptzutaten: Brickteig, Ei, Thunfisch, Kapern, Petersilie...',
+                'it': 'Ingredienti principali: Pasta brick, uovo, tonno, capperi, prezzemolo...',
+                'pl': 'Główne składniki: Ciasto brick, jajko, tuńczyk, kapary, pietruszka...',
+                'ar': 'المكونات الرئيسية: عجينة بريك، بيضة، تونة، كبر، بقدونس...'
+            };
+
+            const allergies = {
+                'fr': 'Allergènes : Contient du gluten, des œufs, du poisson.',
+                'en': 'Allergens: Contains gluten, eggs, fish.',
+                'es': 'Alergénicos: Contiene gluten, huevos, pescado.',
+                'de': 'Allergene: Enthält Gluten, Eier, Fisch.',
+                'it': 'Allergeni: Contiene glutine, uova, pesce.',
+                'pl': 'Alergeny: Zawiera gluten, jaja, ryby.',
+                'ar': 'المواد المثيرة للحساسية: يحتوي على الجلوتين، البيض، السمك.'
+            };
+
+            const history = {
+                'fr': 'Le Brick à l\'œuf est un plat populaire en Tunisie, souvent consommé lors des repas familiaux ou pendant le mois de Ramadan.',
+                'en': 'Egg Brick is a popular dish in Tunisia, often consumed during family meals or during Ramadan.',
+                'es': 'El Brick de Huevo es un plato popular en Túnez, a menudo consumido durante las comidas familiares o durante el mes de Ramadán.',
+                'de': 'Eibrik ist ein beliebtes Gericht in Tunesien, das oft bei Familienmahlzeiten oder während des Ramadan konsumiert wird.',
+                'it': 'Brick all\'uovo è un piatto popolare in Tunisia, spesso consumato durante i pasti in famiglia o durante il mese di Ramadan.',
+                'pl': 'Brick z jajkiem to popularne danie w Tunezji, często spożywane podczas posiłków rodzinnych lub w miesiącu Ramadan.',
+                'ar': 'بريك بالبيض هو طبق شعبي في تونس، وغالبا ما يتم تناوله خلال الوجبات العائلية أو خلال شهر رمضان.'
+            };
+
+            const serving = {
+                'fr': 'Le Brick à l\'œuf est généralement servi chaud avec une sauce harissa.',
+                'en': 'Egg Brick is usually served hot with harissa sauce.',
+                'es': 'El Brick de Huevo generalmente se sirve caliente con salsa harissa.',
+                'de': 'Eibrik wird normalerweise heiß mit Harissasauce serviert.',
+                'it': 'Brick all\'uovo viene solitamente servito caldo con salsa harissa.',
+                'pl': 'Brick z jajkiem zazwyczaj podaje się na gorąco z sosem harissa.',
+                'ar': 'يُقدّم بريك بالبيض عادةً ساخناً مع صلصة هريسة.'
+            };
+
+            // Switch content based on the selected language
+            document.querySelector('.container h1').textContent = texts[language];
+            document.querySelector('.overview h2').textContent = language === 'en' ? 'Overview' : 
+                (language === 'es' ? 'Visión general' : 
+                (language === 'de' ? 'Übersicht' : 
+                (language === 'it' ? 'Panoramica' : 
+                (language === 'pl' ? 'Przegląd' : 
+                (language === 'ar' ? 'نظرة عامة' : 'Présentation')))));
+            document.querySelector('.calories h2').textContent = language === 'en' ? 'Calories' : 
+                (language === 'es' ? 'Calorías' : 
+                (language === 'de' ? 'Kalorien' : 
+                (language === 'it' ? 'Calorie' : 
+                (language === 'pl' ? 'Kalorie' : 
+                (language === 'ar' ? 'السعرات الحرارية' : 'Calories')))));
+            document.querySelector('.components h2').textContent = language === 'en' ? 'Ingredients' :
+                (language === 'es' ? 'Ingredientes' : 
+                (language === 'de' ? 'Zutaten' : 
+                (language === 'it' ? 'Ingredienti' : 
+                (language === 'pl' ? 'Składniki' : 
+                (language === 'ar' ? 'المكونات' : 'Ingrédients')))));
+            document.querySelector('.allergies h2').textContent = language === 'en' ? 'Allergens' : 
+                (language === 'es' ? 'Alergénicos' : 
+                (language === 'de' ? 'Allergene' : 
+                (language === 'it' ? 'Allergeni' : 
+                (language === 'pl' ? 'Alergeny' : 
+                (language === 'ar' ? 'المواد المثيرة للحساسية' : 'Allergènes')))));
+            document.querySelector('.history h2').textContent = language === 'en' ? 'History' : 
+                (language === 'es' ? 'Historia' : 
+                (language === 'de' ? 'Geschichte' : 
+                (language === 'it' ? 'Storia' : 
+                (language === 'pl' ? 'Historia' : 
+                (language === 'ar' ? 'التاريخ' : 'Historique')))));
+            document.querySelector('.serving h2').textContent = language === 'en' ? 'Serving' : 
+                (language === 'es' ? 'Servicio' : 
+                (language === 'de' ? 'Servieren' : 
+                (language === 'it' ? 'Servire' : 
+                (language === 'pl' ? 'Serwowanie' : 
+                (language === 'ar' ? 'طريقة التقديم' : 'Service')))));
+
+            document.querySelector('.overview p').textContent = overviews[language];
+            document.querySelector('.calories p').textContent = calories[language];
+            document.querySelector('.components p').textContent = components[language];
+            document.querySelector('.allergies p').textContent = allergies[language];
+            document.querySelector('.history p').textContent = history[language];
+            document.querySelector('.serving p').textContent = serving[language];
         }
     </script>
 </head>
 <body>
-
     <div class="container">
         <header>
-
-            <h1>Couscous Royal</h1>
+            <h1 id="dish-name">Brick à l'œuf</h1>
             <div class="flags">
-                <img src="https://flagcdn.com/fr.svg" alt="Français" title="Français" onclick="switchLanguage('fr')">
+                <img src="https://flagcdn.com/fr.svg" alt="French" title="Français" onclick="switchLanguage('fr')">
                 <img src="https://flagcdn.com/gb.svg" alt="English" title="English" onclick="switchLanguage('en')">
-                <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" onclick="switchLanguage('es')">
-                <img src="https://flagcdn.com/de.svg" alt="Deutsch" title="Deutsch" onclick="switchLanguage('de')">
-                <img src="https://flagcdn.com/it.svg" alt="Italiano" title="Italiano" onclick="switchLanguage('it')">
-                <img src="https://flagcdn.com/pl.svg" alt="Polski" title="Polski" onclick="switchLanguage('pl')">
-                <img src="https://flagcdn.com/tn.svg" alt="العربية" title="العربية" onclick="switchLanguage('ar')">
+                <img src="https://flagcdn.com/es.svg" alt="Spanish" title="Español" onclick="switchLanguage('es')">
+                <img src="https://flagcdn.com/de.svg" alt="German" title="Deutsch" onclick="switchLanguage('de')">
+                <img src="https://flagcdn.com/it.svg" alt="Italian" title="Italiano" onclick="switchLanguage('it')">
+                <img src="https://flagcdn.com/pl.svg" alt="Polish" title="Polski" onclick="switchLanguage('pl')">
+                <img src="https://flagcdn.com/tn.svg" alt="Arabic" title="العربية" onclick="switchLanguage('ar')">
             </div>
         </header>
 
-
-        <img class="dish-image" src="https://fac.img.pmdstatic.net/fit/~1~fac~2018~07~30~94958cd5-6b38-46a6-a289-bb42cd7e2bd1.jpeg/850x478/quality/90/crop-from/center/couscous-royal-aux-3-viandes.jpeg" alt="Couscous Royal">
+        <img class="dish-image" src="https://ksar.fr/wp-content/uploads/2023/12/le_ksar_-_sfdcid_0011j00001ovjslqap_ksar_brick_aux_crevettes_550x440.jpg" alt="Brick à l'œuf">
         <div class="overview">
-            <h2>Présentation</h2>
-            <p>Le Couscous Royal est un plat emblématique d'Afrique du Nord, composé de semoule de blé accompagnée de viandes variées, de légumes et d'épices.</p>
+            <h2>Aperçu</h2>
+            <p id="overview">Le Brick à l'œuf est une spécialité tunisienne composée d'une fine pâte farcie d'un œuf et de divers ingrédients.</p>
         </div>
 
         <div class="calories">
             <h2>Calories</h2>
-            <p>Environ 400 calories par portion.</p>
+            <p id="calories">Environ 300 calories par portion...</p>
         </div>
 
         <div class="components">
             <h2>Composants principaux</h2>
-            <p>Semoule de blé, agneau, poulet, merguez, courgettes, carottes, pois chiches, épices (cumin, curcuma, paprika).</p>
+            <p id="components">Composants principaux : Pâte à brick, œuf, thon, câpres, persil...</p>
         </div>
 
         <div class="allergies">
             <h2>Allergènes</h2>
-            <p>Contient du gluten et peut contenir des traces de fruits à coque.</p>
+            <p id="allergies">Allergènes : Contient du gluten, des œufs, du poisson.</p>
         </div>
 
         <div class="history">
             <h2>Histoire</h2>
-            <p>Originaire d'Afrique du Nord, le couscous est un plat ancien qui symbolise le partage et la convivialité.</p>
+            <p id="history">Le Brick à l'œuf est un plat populaire en Tunisie, souvent consommé lors des repas familiaux ou pendant le mois de Ramadan.</p>
         </div>
 
         <div class="serving">
             <h2>Présentation</h2>
-            <p>Le Couscous Royal se sert avec une sauce épicée à base de tomate et un bol de bouillon chaud.</p>
+            <p id="serving">Le Brick à l'œuf est généralement servi chaud avec une sauce harissa.</p>
         </div>
 
         <div class="back-to-top">
             <a href="#">Retour en haut</a>
         </div>
-
 <p style="text-align: center; font-size: 12px;">&copy; 2025 Seabel Rym Beach Hotel. Tous droits réservés.</p>
     </div>
         <img class="logo" src="https://www.seabelhotels.com/wp-content/uploads/2021/12/Logo_slide_rym_beach.png" alt="Seabel Rym Beach Hotel Logo">
         </div>
-
-
-
 </body>
 </html>
